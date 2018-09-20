@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x20"
+        android:background="@mipmap/ic_bg_login_enabled"
+        android:padding="@dimen/x2"
+        android:src="@mipmap/ic_mystudent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x8"
+        android:background="@mipmap/ic_bg_et"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/x6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_user_phone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x13" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x10"
+            android:background="@null"
+            android:hint="@string/str_user_phone_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_ffc"
+            android:textSize="@dimen/x12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x8"
+        android:background="@mipmap/ic_bg_et"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/x6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_user_pwd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x13" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/x10"
+            android:background="@null"
+            android:inputType="textPassword"
+            android:hint="@string/str_user_pwd_hint"
+            android:textColor="@color/white"
+            android:textColorHint="@color/color_ffc"
+            android:textSize="@dimen/x12" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/x8">
+
+        <TextView
+            android:id="@+id/tv_user_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/str_user_register"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x13" />
+        <TextView
+            android:id="@+id/tv_forget_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x10"
+            android:text="@string/str_forget_pwd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x13" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x20"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/x20"
+            android:text="@string/str_login"
+            android:textColor="@color/white"
+            android:background="@mipmap/ic_bg_dancelist_title" />
+    </LinearLayout>
+</LinearLayout>

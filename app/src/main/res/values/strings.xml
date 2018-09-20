@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">artseed</string>
+    <string name="base_url">http://192.168.0.93:8080</string>
+    <string name="str_loading">loading...</string>
+
+    <string name="str_user_phone">帐号：</string>
+    <string name="str_user_pwd">密码：</string>
+    <string name="str_user_phone_hint">请输入登录帐号</string>
+    <string name="str_user_pwd_hint">请输入登录密码</string>
+    <string name="str_user_register"><u>新用户注册</u></string>
+    <string name="str_forget_pwd"><u>忘记密码?</u></string>
+    <string name="str_login">登录</string>
+
+    <string name="str_hint_phone">请输入您的手机号</string>
+    <string name="str_phone_digit_err">手机号应为11位数!!</string>
+    <string name="str_phone_format_err">您的手机号格式错误!!</string>
+    <string name="str_confirm_password">请再次输入密码</string>
+    <string name="str_pwd_length_err">密码长度过短！</string>
+    <string name="str_pwd_unlike">两次密码输入不一致！</string>
+    <string name="dialog_positive">确定</string>
+    <string name="dialog_negative">取消</string>
+</resources>
