@@ -1,4 +1,4 @@
-# artseed
+
 项目实现kotlin+retrofit2+rxjava2+MVP
 
 目录结构
