@@ -1,7 +1,8 @@
-package com.guangzhou.t.baymax.artseed.core.data.net
+package com.bjike.t.baymax.artseed.core.data.net
 
-import com.guangzhou.t.baymax.artseed.core.CoreApp
-import com.guangzhou.t.baymax.artseed.core.utils.NetUtils
+import com.bjike.t.baymax.artseed.core.CoreApp
+import com.bjike.t.baymax.artseed.core.utils.NetUtils
+import com.bjike.t.baymax.artseed.core.utils.PreferenceService
 
 import java.io.IOException
 
@@ -17,13 +18,33 @@ import okhttp3.Response
  * authorization：bjike.com
  */
 class CacheInterceptor : Interceptor {
+    private val USER_TOKEN = "Authorization"
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
+
+        var preference = PreferenceService(CoreApp.appContext)
+        var usertoken = preference.getSetting("usertoken")
         var request = chain.request()
+        /*request= request.newBuilder()
+                .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                .addHeader("Connection", "close").build()*/
+
+        if(usertoken.isNullOrBlank() || request.header(USER_TOKEN) == null){
+            request=request.newBuilder().addHeader(USER_TOKEN, "token $usertoken").build()
+        }
+        if (request.header("Connection") == null||request.header("Content-Type") == null){
+            request= request.newBuilder()
+                    .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+                    .addHeader("Connection", "close").build()
+        }
+/*
+        if (!usertoken.isNullOrBlank()) {
+            request.addHeader("Authorization", "token $usertoken")
+            request.addHeader("token",usertoken)
+        }*/
         if (!NetUtils.isConnected(CoreApp.appContext)) {
-            request = request.newBuilder()
-                    .cacheControl(CacheControl.FORCE_CACHE)
-                    .build()
+            request=request.newBuilder().cacheControl(CacheControl.FORCE_CACHE).build()
+
         }
         val response = chain.proceed(request)
         if (NetUtils.isConnected(CoreApp.appContext)) {

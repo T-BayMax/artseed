@@ -1,5 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.data.net
-
+package com.bjike.t.baymax.artseed.core.data.net
 /**
  * 服务器返回状态码对应错误
  * author：T-Baymax on 2018/09/07 14:46

@@ -1,7 +1,6 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.app.Activity
-import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
 import android.view.View
@@ -65,7 +64,7 @@ object StatusBarUtil {
     /**
      * 获取状态栏的高度
      */
-    fun getStatusBarHeight(activity: Activity): Int {
+    private fun getStatusBarHeight(activity: Activity): Int {
         val resources = activity.resources
         val statusBarHeightId = resources.getIdentifier("status_bar_height", "dimen", "android")
         return resources.getDimensionPixelOffset(statusBarHeightId)

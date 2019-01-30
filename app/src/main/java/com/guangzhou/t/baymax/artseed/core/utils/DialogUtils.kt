@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.app.Dialog
 import android.app.ProgressDialog
@@ -11,7 +11,7 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
 
-import com.guangzhou.t.baymax.artseed.R
+import com.bjike.t.baymax.artseed.R
 
 /**
  * 对话框工具类, 提供常用对话框显示, 使用support.v7包内的AlertDialog样式

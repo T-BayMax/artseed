@@ -1,16 +1,12 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
-import com.guangzhou.t.baymax.artseed.core.data.entity.CoreDataResponse
-import com.guangzhou.t.baymax.artseed.core.data.net.CoreApiException
-import com.guangzhou.t.baymax.artseed.core.data.net.CoreErrorConstants
-import com.guangzhou.t.baymax.artseed.core.data.net.HttpResponseFunc
+import com.bjike.t.baymax.artseed.core.data.entity.CoreDataResponse
+import com.bjike.t.baymax.artseed.core.data.net.CoreApiException
+import com.bjike.t.baymax.artseed.core.data.net.HttpResponseFunc
 
 import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
-import io.reactivex.ObservableOnSubscribe
 import io.reactivex.ObservableTransformer
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
 
 
@@ -37,13 +33,17 @@ object RxUtil {
     </T> */
     fun <T> handleResult(): ObservableTransformer<CoreDataResponse<T>, T> {   //compose判断结果
         return ObservableTransformer{ httpResponseObservable ->
-            httpResponseObservable.flatMap(Function<CoreDataResponse<T>, Observable<T>> { tCoreDataResponse ->
+            httpResponseObservable.flatMap { tCoreDataResponse ->
                 if (tCoreDataResponse.code == 200) {
-                    createData(tCoreDataResponse.data)
+                    val data=tCoreDataResponse.data
+                    if (data is CoreDataResponse<*>){
+                        createData(tCoreDataResponse as T)
+                    }else
+                        createData(tCoreDataResponse.data)
                 } else {
                     Observable.error(CoreApiException(tCoreDataResponse.msg!!))//返回自定义错误
                 }
-            }).onErrorResumeNext (HttpResponseFunc())
+            }.onErrorResumeNext (HttpResponseFunc())
         }
     }
 

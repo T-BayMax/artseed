@@ -1,6 +1,5 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
-import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
 
@@ -9,7 +8,7 @@ import android.content.SharedPreferences
  * mail：baixianhong_aj@163.com
  * authorization：bjike.com
  */
-class PreferenceService(private val context: Activity) {
+class PreferenceService(private val context: Context) {
     var sharedPreferences: SharedPreferences
     var editor: SharedPreferences.Editor
 

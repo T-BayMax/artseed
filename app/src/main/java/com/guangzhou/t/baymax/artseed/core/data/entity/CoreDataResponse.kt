@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.data.entity
+package com.bjike.t.baymax.artseed.core.data.entity
 
 /**
  * 服务器返回类型
@@ -7,15 +7,15 @@ package com.guangzhou.t.baymax.artseed.core.data.entity
  * authorization：bjike.com
  */
 class CoreDataResponse<T> {
-    var code: Int = 0
-    var msg: String? = null
-    var data: T? = null
+  var code: Int = 0
+  var msg: String? = null
+  var data: T? = null
 
-    override fun toString(): String {
-        return "CoreDataResponse{" +
-                "code=" + code +
-                ", msg='" + msg + '\''.toString() +
-                ", data=" + data +
-                '}'.toString()
-    }
+  override fun toString(): String {
+    return "CoreDataResponse{" +
+            "code=" + code +
+            ", msg='" + msg + '\''.toString() +
+            ", data=" + data +
+            '}'.toString()
+  }
 }

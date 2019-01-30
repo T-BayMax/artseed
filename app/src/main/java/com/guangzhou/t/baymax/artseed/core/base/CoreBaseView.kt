@@ -1,6 +1,5 @@
-package com.guangzhou.t.baymax.artseed.core.base
+package com.bjike.t.baymax.artseed.core.base
 
-import android.content.Context
 
 /**
  * 统一view

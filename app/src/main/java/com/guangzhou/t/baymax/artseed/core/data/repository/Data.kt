@@ -1,5 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.data.repository
-
+package com.bjike.t.baymax.artseed.core.data.repository
 import java.util.ArrayList
 
 /**
@@ -9,5 +8,5 @@ import java.util.ArrayList
  * authorization：bjike.com
  */
 class Data<T> {
-    var results: ArrayList<T>? = null
+  var results: ArrayList<T>? = null
 }

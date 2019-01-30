@@ -1,16 +1,15 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
-import com.guangzhou.t.baymax.artseed.core.data.entity.CoreDataResponse
-import com.guangzhou.t.baymax.artseed.core.data.net.CoreApiException
-import com.guangzhou.t.baymax.artseed.core.data.net.CoreErrorConstants
+import com.bjike.t.baymax.artseed.core.data.entity.CoreDataResponse
+import com.bjike.t.baymax.artseed.core.data.net.CoreApiException
+import com.bjike.t.baymax.artseed.core.data.net.CoreErrorConstants
 import com.google.gson.Gson
 import io.reactivex.Observable
 
 import java.net.UnknownHostException
 
-import okhttp3.MediaType
-import okhttp3.ResponseBody
 import retrofit2.HttpException
+import java.net.SocketTimeoutException
 
 object ErrorInfoUtils {
 
@@ -45,6 +44,12 @@ object ErrorInfoUtils {
         } else {
             if (throwable is UnknownHostException) {
                 errorInfo = "无法连接到服务器"
+            }else if (throwable is SocketTimeoutException){
+                errorInfo = "请求超时，请确认网络连接后重试！"
+            }else  if (throwable is CoreApiException){
+               // errorInfo = "请求超时，请确认网络连接后重试！"
+            }else{
+                errorInfo = "发生未知错误"
             }
         }
 

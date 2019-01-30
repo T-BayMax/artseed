@@ -1,12 +1,6 @@
-package com.guangzhou.t.baymax.artseed.core.data.net
+package com.bjike.t.baymax.artseed.core.data.net
 
-
-import android.content.Context
-import com.guangzhou.t.baymax.artseed.R
-import com.guangzhou.t.baymax.artseed.core.CoreApp
-import com.guangzhou.t.baymax.artseed.core.CoreApp.Companion.appContext
-import com.guangzhou.t.baymax.artseed.core.CoreApp.Companion.appResources
-import com.guangzhou.t.baymax.artseed.core.utils.CookieManger
+import com.bjike.t.baymax.artseed.core.CoreApp
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 import java.util.concurrent.TimeUnit
@@ -29,24 +23,24 @@ object RxService {
     private val TIMEOUT_CONNECTION = 10
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     private val cacheInterceptor = CacheInterceptor()
-  /*  val certficates = intArrayOf(R.raw.issp)保存raw资源文件的证书
+  /*  val certficates = intArrayOf(R.raw.issp)//保存raw资源文件的证书
     val certificate = appResources.openRawResource(certficates[0])
     val sslParams = HttpsUtils.getSslSocketFactory(null, certificate, null)*/
     private val okHttpClient = OkHttpClient.Builder()
             //SSL证书
-           /* .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-            //管理cookie
-            .cookieJar(CookieManger(appContext))*/
+          /*  .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
+           //管理cookie
+          .cookieJar(CookieManger(appContext))*/
           //设置验证证书
-          .hostnameVerifier(HostnameVerifier { _: String, _: SSLSession ->
+          .hostnameVerifier { _: String, _: SSLSession ->
               true
-          })
-            //打印日志
+          }
+          //打印日志
             .addInterceptor(interceptor)
             //设置Cache
             .addNetworkInterceptor(cacheInterceptor)//缓存方面需要加入这个拦截器
-            .addInterceptor(cacheInterceptor)
-            .cache(HttpCache.cache)
+           // .addInterceptor(cacheInterceptor)
+            //.cache(HttpCache.cache)
             //time out
             .connectTimeout(TIMEOUT_CONNECTION.toLong(), TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_READ.toLong(), TimeUnit.SECONDS)

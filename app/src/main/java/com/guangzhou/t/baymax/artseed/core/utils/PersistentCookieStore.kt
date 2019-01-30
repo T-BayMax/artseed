@@ -1,10 +1,10 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.text.TextUtils
 import android.util.Log
-import com.guangzhou.t.baymax.artseed.core.data.entity.OkHttpCookies
+import com.bjike.t.baymax.artseed.core.data.entity.OkHttpCookies
 
 
 import java.io.ByteArrayInputStream

@@ -1,6 +1,6 @@
-package com.guangzhou.t.baymax.artseed.core.data.net
+package com.bjike.t.baymax.artseed.core.data.net
 
-import com.guangzhou.t.baymax.artseed.core.CoreApp
+import com.bjike.t.baymax.artseed.core.CoreApp
 
 import java.io.File
 

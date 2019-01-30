@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.app.Activity
 import android.content.ComponentName

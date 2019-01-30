@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core
+package com.bjike.t.baymax.artseed.core
 
 import android.support.annotation.NonNull
 import java.util.ArrayList
@@ -92,7 +92,7 @@ class RxBus private constructor() {
 
         val subjectList = subjectMapper[tag]
         if (!isEmpty(subjectList)) {
-            for (subject in subjectList!!.iterator()) subject.onNext(tag)
+            for (subject in subjectList!!.iterator()) subject.onNext(content)
         }
     }
 

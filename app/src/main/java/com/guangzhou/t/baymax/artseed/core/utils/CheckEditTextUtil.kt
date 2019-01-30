@@ -1,8 +1,8 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.content.Context
-import com.guangzhou.t.baymax.artseed.R
-import com.guangzhou.t.baymax.artseed.core.utils.ToastUtils.showToast
+import com.bjike.t.baymax.artseed.R
+import com.bjike.t.baymax.artseed.core.utils.ToastUtils.showToast
 import java.util.regex.Pattern
 
 /**
@@ -13,7 +13,7 @@ import java.util.regex.Pattern
  */
 
 fun Context.checkPhoneNumber(phone: String): Boolean {
-    val regex = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[013678])|(18[0,5-9])|(199))\\d{8}$"
+    val regex = "^((13[0-9]{1})|(14[0-9]{1})|(16[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))\\d{8}$"
     if (phone == "") {
         showToast(this,resources.getString(R.string.str_hint_phone))
         return true

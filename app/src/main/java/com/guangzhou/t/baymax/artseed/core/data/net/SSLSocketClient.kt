@@ -1,4 +1,4 @@
-package com.guangzhou.issp.network
+package com.bjike.issp.network
 
 import java.io.IOException
 import java.io.InputStream

@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.content.Context
 
@@ -13,36 +13,36 @@ import okhttp3.HttpUrl
 
 class CookieManger(context: Context) : CookieJar {
 
-    init {
-        mContext = context
-        if (cookieStore == null) {
-            cookieStore = PersistentCookieStore(mContext)
-        }
-
+  init {
+    mContext = context
+    if (cookieStore == null) {
+      cookieStore = PersistentCookieStore(mContext)
     }
 
-    override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>?) {
-        if (cookies != null && cookies.isNotEmpty()) {
-            for (item in cookies) {
-                cookieStore!!.add(url, item)
-            }
-        }
+  }
+
+  override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>?) {
+    if (cookies != null && cookies.isNotEmpty()) {
+      for (item in cookies) {
+        cookieStore!!.add(url, item)
+      }
     }
+  }
 
-    override fun loadForRequest(url: HttpUrl): List<Cookie> {
-        return cookieStore!![url]
-    }
+  override fun loadForRequest(url: HttpUrl): List<Cookie> {
+    return cookieStore!![url]
+  }
 
-    internal class Customer(var userID: String?, var token: String?)
+  internal class Customer(var userID: String?, var token: String?)
 
-    companion object {
-
-
-        var APP_PLATFORM = "app-platform"
+  companion object {
 
 
-        private lateinit var mContext: Context
+    var APP_PLATFORM = "app-platform"
 
-        private var cookieStore: PersistentCookieStore? = null
-    }
+
+    private lateinit var mContext: Context
+
+    private var cookieStore: PersistentCookieStore? = null
+  }
 }

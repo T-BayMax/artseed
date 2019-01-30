@@ -1,9 +1,7 @@
-package com.guangzhou.t.baymax.artseed.core
+package com.bjike.t.baymax.artseed.core
 
 import android.app.Activity
-import android.app.ActivityManager
 import android.content.Context
-import com.guangzhou.t.baymax.artseed.core.AppManager.Companion.activityStack
 
 import java.util.Stack
 
@@ -40,6 +38,7 @@ class AppManager private constructor() {
      */
     fun finishActivity() {
         val activity = activityStack!!.lastElement()
+        activityStack!!.remove(activity)
         finishActivity(activity)
     }
 
@@ -62,6 +61,7 @@ class AppManager private constructor() {
         for (activity in activityStack!!) {
             if (activity.javaClass == cls) {
                 finishActivity(activity)
+                activityStack!!.remove(activity)
             }
         }
     }
@@ -80,15 +80,23 @@ class AppManager private constructor() {
         }
         activityStack!!.clear()
     }
+    fun isHaveActivity(cls: Class<*>):Boolean{
+        for (activity in activityStack!!) {
+            if (activity.javaClass == cls) {
+                return true
+            }
+        }
+        return false
+    }
 
     /**
      * 退出应用程序
      */
-    fun AppExit(context: Context) {
+    fun AppExit() {
         try {
             finishAllActivity()
-          //  val activityMgr = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-           // activityMgr.killBackgroundProcesses(context.packageName)
+            //  val activityMgr = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            // activityMgr.killBackgroundProcesses(context.packageName)
             System.exit(0)
         } catch (e: Exception) {
         }

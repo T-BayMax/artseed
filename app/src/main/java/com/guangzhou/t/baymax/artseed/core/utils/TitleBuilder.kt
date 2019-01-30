@@ -1,14 +1,15 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.app.Activity
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.ImageView
 import android.widget.TextView
 
-import com.guangzhou.baymax.artseed.R
+import com.bjike.t.baymax.artseed.R
 
 
 /**
@@ -118,12 +119,12 @@ class TitleBuilder {
     }
 
     fun setRightTextColor(context: Context, resId: Int): TitleBuilder {
-        tvRight!!.setTextColor(context.resources.getColor(resId))
+        tvRight!!.setTextColor(ContextCompat.getColor(context,resId))
         return this
     }
 
     fun setTitleTextColor(context: Context, resId: Int): TitleBuilder {
-        tvTitle!!.setTextColor(context.resources.getColor(resId))
+        tvTitle!!.setTextColor(ContextCompat.getColor(context,resId))
         return this
     }
 

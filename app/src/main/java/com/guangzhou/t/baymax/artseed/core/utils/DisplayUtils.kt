@@ -1,4 +1,4 @@
-package com.guangzhou.t.baymax.artseed.core.utils
+package com.bjike.t.baymax.artseed.core.utils
 
 import android.app.Activity
 import android.content.Context
@@ -53,5 +53,21 @@ object DisplayUtils {
         val metric = DisplayMetrics()
         context.windowManager.defaultDisplay.getMetrics(metric)
         return metric.heightPixels
+    }
+    fun Context.getVersionCode(): String {
+
+        var version = ""
+        try {
+            // 获取packagemanager的实例
+            val packageManager = getPackageManager()
+            // getPackageName()是你当前类的包名，0代表是获取版本信息
+            val packInfo = packageManager.getPackageInfo(getPackageName(), 0)
+            version = packInfo.versionName
+            return version
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+        return version
     }
 }

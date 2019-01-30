@@ -1,6 +1,5 @@
-package com.guangzhou.t.baymax.artseed.core
+package com.bjike.t.baymax.artseed.core
 
-import org.reactivestreams.Subscription
 
 import java.util.HashMap
 

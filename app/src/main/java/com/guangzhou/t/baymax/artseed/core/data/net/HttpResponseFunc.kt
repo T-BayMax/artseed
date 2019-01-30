@@ -1,6 +1,6 @@
-package com.guangzhou.t.baymax.artseed.core.data.net
+package com.bjike.t.baymax.artseed.core.data.net
 
-import com.guangzhou.t.baymax.artseed.core.utils.ErrorInfoUtils
+import com.bjike.t.baymax.artseed.core.utils.ErrorInfoUtils
 import io.reactivex.Observable
 
 import io.reactivex.functions.Function
@@ -12,7 +12,7 @@ import io.reactivex.functions.Function
  * authorization：bjike.com
  */
 class HttpResponseFunc<T> :Function<Throwable,Observable<T>>{
-    override fun apply(t: Throwable): Observable<T> {
-        return ErrorInfoUtils.parseHttpErrorInfo<T>(t)!!
-    }
+  override fun apply(t: Throwable): Observable<T> {
+    return ErrorInfoUtils.parseHttpErrorInfo<T>(t)!!
+  }
 }

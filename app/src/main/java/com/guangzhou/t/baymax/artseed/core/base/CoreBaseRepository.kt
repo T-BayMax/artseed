@@ -1,6 +1,6 @@
-package com.guangzhou.t.baymax.artseed.core.base
+package com.bjike.t.baymax.artseed.core.base
 
-import com.guangzhou.t.baymax.artseed.core.data.repository.Repository
+import com.bjike.t.baymax.artseed.core.data.repository.Repository
 
 /**
  * 统一repository
@@ -9,14 +9,14 @@ import com.guangzhou.t.baymax.artseed.core.data.repository.Repository
  * authorization：bjike.com
  */
 open class CoreBaseRepository :Cloneable {
-    override fun clone(): Any  {
-        var stu: Repository<*>? = null
-        try {
-            stu = super.clone() as Repository<*>
-        } catch (e: CloneNotSupportedException) {
-            e.printStackTrace()
-        }
-
-        return stu!!
+  override fun clone(): Any  {
+    var stu: Repository<*>? = null
+    try {
+      stu = super.clone() as Repository<*>
+    } catch (e: CloneNotSupportedException) {
+      e.printStackTrace()
     }
+
+    return stu!!
+  }
 }

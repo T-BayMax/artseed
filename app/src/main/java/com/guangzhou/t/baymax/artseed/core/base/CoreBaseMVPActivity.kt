@@ -1,23 +1,16 @@
 package com.bjike.t.baymax.artseed.core.base
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.LayoutRes
 import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 
-import com.guangzhou.t.baymax.artseed.R
-import com.guangzhou.t.baymax.artseed.core.AppManager
-import com.guangzhou.t.baymax.artseed.core.utils.ClassUtil
-import com.guangzhou.t.baymax.artseed.core.utils.TitleBuilder
+import com.bjike.t.baymax.artseed.R
+import com.bjike.t.baymax.artseed.core.AppManager
+import com.bjike.t.baymax.artseed.core.utils.ClassUtil
 
 
 /**
@@ -26,7 +19,7 @@ import com.guangzhou.t.baymax.artseed.core.utils.TitleBuilder
  * mail：baixianhong_aj@163.com
  * authorization：bjike.com
  */
-abstract class CoreBaseMVPActivity<P : CoreBasePresenter<*, *>, E : CoreBaseModel> : AppCompatActivity() {
+abstract class CoreBaseMVPActivity<P : CoreBasePresenter<*, *>, E : CoreBaseModel> : CoreBaseActivity() {
 
     private var TAG: String? = null
 
@@ -47,31 +40,25 @@ abstract class CoreBaseMVPActivity<P : CoreBasePresenter<*, *>, E : CoreBaseMode
             return container
         }
 
-    @LayoutRes
-    abstract fun getLayoutId(): Int
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        init(savedInstanceState)
-    }
-
-    private fun init(savedInstanceState: Bundle?) {
+    override fun init(savedInstanceState: Bundle?) {
         TAG = javaClass.simpleName
 
-        this.setContentView(this.getLayoutId())
+        //  super.setContentView(this.getLayoutId())
         mContext = this
         mPresenter = ClassUtil.getT<P>(this, 0)
         mModel = ClassUtil.getT<E>(this, 1)
         if (this is CoreBaseView) mPresenter!!.attachVM(this, mModel!!)
-        this.initView(savedInstanceState)
 
-        AppManager.appManager.addActivity(this)
+     //   AppManager.appManager.addActivity(this)
     }
+/*
 
-    /**
+    */
+/**
      * 结束是注销Presenter
-     */
+     *//*
+
     override fun onDestroy() {
         super.onDestroy()
         AppManager.appManager.finishActivity(this)
@@ -81,18 +68,7 @@ abstract class CoreBaseMVPActivity<P : CoreBasePresenter<*, *>, E : CoreBaseMode
     override fun onResume() {
         super.onResume()
     }
-
-    /**
-     * 重载当前Activity
-     */
-    fun reload() {
-        val intent = intent
-        overridePendingTransition(0, 0)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        finish()
-        overridePendingTransition(0, 0)
-        startActivity(intent)
-    }
+*/
 
     override fun setContentView(layoutResID: Int) {
         if (isOpen) {
@@ -103,47 +79,4 @@ abstract class CoreBaseMVPActivity<P : CoreBasePresenter<*, *>, E : CoreBaseMode
             view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
         }
     }
-
-    abstract fun initView(savedInstanceState: Bundle?)
-
-    /**
-     * 左侧有返回键的标题栏
-     *
-     * 如果在此基础上还要加其他内容,比如右侧有文字按钮,可以获取该方法返回值继续设置其他内容
-     *
-     * @param title 标题
-     */
-    protected fun initBackTitle(title: String): TitleBuilder {
-        return TitleBuilder(this)
-                .setTitleText(title)
-                .setLeftImage(R.mipmap.ic_back)
-                .setLeftOnClickListener(View.OnClickListener {
-                    finish()
-                })
-    }
-
-    /**
-     * 跳转页面,带options参数
-     *
-     * @param tarActivity 目标页面
-     */
-    fun startActivity(tarActivity: Class<out Activity>, options: Bundle) {
-        val intent = Intent(this, tarActivity)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            startActivity(intent, options)
-        } else {
-            startActivity(intent)
-        }
-    }
-
-    /**
-     * 跳转页面,无extra简易型
-     *
-     * @param tarActivity 目标页面
-     */
-    fun startActivity(tarActivity: Class<out Activity>) {
-        val intent = Intent(this, tarActivity)
-        startActivity(intent)
-    }
-
 }
