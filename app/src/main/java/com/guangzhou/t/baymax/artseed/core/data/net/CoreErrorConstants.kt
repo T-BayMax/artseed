@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.data.net;
+package com.guangzhou.t.baymax.artseed.core.data.net;
 
 object CoreErrorConstants {
     val errors: MutableMap<Int, String> = HashMap()

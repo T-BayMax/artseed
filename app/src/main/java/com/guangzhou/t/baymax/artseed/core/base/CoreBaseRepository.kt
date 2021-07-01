@@ -1,6 +1,6 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
-import com.bjike.t.baymax.artseed.core.data.repository.Repository
+import com.guangzhou.t.baymax.artseed.core.data.repository.Repository
 
 /**
  * 统一repository

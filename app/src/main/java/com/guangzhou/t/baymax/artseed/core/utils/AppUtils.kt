@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -106,7 +106,7 @@ object AppUtils {
     fun copy2clipboard(context: Context, text: String) {
         val cm = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("clip", text)
-        cm.primaryClip = clip
+        cm.setPrimaryClip(clip)
     }
 
 }

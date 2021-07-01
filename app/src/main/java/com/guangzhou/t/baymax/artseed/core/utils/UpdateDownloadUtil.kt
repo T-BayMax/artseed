@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 
 import android.app.NotificationManager
@@ -6,11 +6,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.support.v4.app.NotificationCompat
-import android.support.v4.content.FileProvider
 import android.widget.RemoteViews
-import com.bjike.t.baymax.artseed.R
-import com.bjike.t.baymax.artseed.bean.VersionBean
+import androidx.core.app.NotificationCompat
+import androidx.core.content.FileProvider
+import com.guangzhou.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.bean.VersionBean
 import com.liulishuo.filedownloader.BaseDownloadTask
 import com.liulishuo.filedownloader.FileDownloadListener
 import com.liulishuo.filedownloader.FileDownloader
@@ -27,15 +27,15 @@ import java.io.File
  */
 class UpdateDownloadUtil {
     private var context: Context
+        get() = this.context
+        set(value) = TODO()
 
     private lateinit var mNotification: NotificationCompat.Builder
     private lateinit var mNotificationManager: NotificationManager
     private lateinit var mRemoteViews: RemoteViews
     private lateinit var  savePath:String
 
-    constructor(context: Context) {
-        this.context = context
-    }
+    constructor(context: Context)
 
     /**
      * 现在APk

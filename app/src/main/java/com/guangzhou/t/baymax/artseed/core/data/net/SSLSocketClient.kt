@@ -1,4 +1,4 @@
-package com.bjike.issp.network
+package com.guangzhou.t.baymax.artseed.core.data.net
 
 import java.io.IOException
 import java.io.InputStream

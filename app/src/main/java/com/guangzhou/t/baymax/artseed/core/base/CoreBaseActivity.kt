@@ -1,16 +1,16 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.bjike.t.baymax.artseed.R
-import com.bjike.t.baymax.artseed.core.AppManager
-import com.bjike.t.baymax.artseed.core.utils.TitleBuilder
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import com.guangzhou.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.core.AppManager
+import com.guangzhou.t.baymax.artseed.core.utils.TitleBuilder
 
 /**
  * author：T-Baymax on 2018/12/22.

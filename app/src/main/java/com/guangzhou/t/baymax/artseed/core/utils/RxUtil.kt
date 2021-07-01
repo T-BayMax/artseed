@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
-import com.bjike.t.baymax.artseed.core.data.entity.CoreDataResponse
-import com.bjike.t.baymax.artseed.core.data.net.CoreApiException
-import com.bjike.t.baymax.artseed.core.data.net.HttpResponseFunc
+import com.guangzhou.t.baymax.artseed.core.data.entity.CoreDataResponse
+import com.guangzhou.t.baymax.artseed.core.data.net.CoreApiException
+import com.guangzhou.t.baymax.artseed.core.data.net.HttpResponseFunc
 
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer

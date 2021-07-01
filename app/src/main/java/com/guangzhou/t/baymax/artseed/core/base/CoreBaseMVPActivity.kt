@@ -1,16 +1,16 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import androidx.core.content.ContextCompat
 
-import com.bjike.t.baymax.artseed.R
-import com.bjike.t.baymax.artseed.core.AppManager
-import com.bjike.t.baymax.artseed.core.utils.ClassUtil
+import com.guangzhou.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.core.AppManager
+import com.guangzhou.t.baymax.artseed.core.utils.ClassUtil
 
 
 /**

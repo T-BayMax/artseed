@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.data.net
+package com.guangzhou.t.baymax.artseed.core.data.net
 
-import com.bjike.t.baymax.artseed.core.CoreApp
-import com.bjike.t.baymax.artseed.core.utils.NetUtils
-import com.bjike.t.baymax.artseed.core.utils.PreferenceService
+import com.guangzhou.t.baymax.artseed.core.CoreApp
+import com.guangzhou.t.baymax.artseed.core.utils.NetUtils
+import com.guangzhou.t.baymax.artseed.core.utils.PreferenceService
 
 import java.io.IOException
 

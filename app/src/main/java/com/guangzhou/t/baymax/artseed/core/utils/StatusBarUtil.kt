@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.app.Activity
 import android.graphics.Color
@@ -27,7 +27,7 @@ object StatusBarUtil {
      * @param activity activity
      * @param color    颜色值
      */
-    fun setStatusBarColor(activity: Activity, color: Int) {
+    private fun setStatusBarColor(activity: Activity, color: Int) {
         // 5.0 以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             activity.window.statusBarColor = color

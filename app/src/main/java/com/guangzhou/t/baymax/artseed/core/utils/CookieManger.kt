@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.content.Context
 
@@ -21,16 +21,17 @@ class CookieManger(context: Context) : CookieJar {
 
   }
 
-  override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>?) {
+
+  override fun loadForRequest(url: HttpUrl): List<Cookie> {
+    return cookieStore!![url]
+  }
+
+  override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
     if (cookies != null && cookies.isNotEmpty()) {
       for (item in cookies) {
         cookieStore!!.add(url, item)
       }
     }
-  }
-
-  override fun loadForRequest(url: HttpUrl): List<Cookie> {
-    return cookieStore!![url]
   }
 
   internal class Customer(var userID: String?, var token: String?)

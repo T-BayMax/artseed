@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.data.repository
+package com.guangzhou.t.baymax.artseed.core.data.repository
 import java.util.ArrayList
 
 /**

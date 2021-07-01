@@ -1,15 +1,15 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.app.Activity
 import android.content.Context
-import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 
-import com.bjike.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.R
 
 
 /**

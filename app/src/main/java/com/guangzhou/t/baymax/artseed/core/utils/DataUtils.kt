@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 /**
  * Created by Min on 2016/12/7.

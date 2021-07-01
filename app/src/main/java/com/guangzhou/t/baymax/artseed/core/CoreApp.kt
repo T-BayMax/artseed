@@ -1,14 +1,16 @@
-package com.bjike.t.baymax.artseed.core
+package com.guangzhou.t.baymax.artseed.core
 
 import android.app.Application
 import android.content.Context
 import android.content.res.Resources
+import androidx.multidex.MultiDex
 
 
 abstract class CoreApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        MultiDex.install(this);
         instance = this
     }
 

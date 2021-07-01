@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.data.entity
+package com.guangzhou.t.baymax.artseed.core.data.entity
 
 /**
  * 服务器返回类型

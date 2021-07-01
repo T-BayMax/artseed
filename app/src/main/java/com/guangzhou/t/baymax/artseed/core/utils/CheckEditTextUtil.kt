@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.content.Context
-import com.bjike.t.baymax.artseed.R
-import com.bjike.t.baymax.artseed.core.utils.ToastUtils.showToast
+import com.guangzhou.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.core.utils.ToastUtils.showToast
 import java.util.regex.Pattern
 
 /**

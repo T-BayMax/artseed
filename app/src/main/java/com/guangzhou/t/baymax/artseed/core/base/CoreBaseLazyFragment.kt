@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import com.bjike.t.baymax.artseed.core.utils.ClassUtil
+import androidx.fragment.app.Fragment
+import com.guangzhou.t.baymax.artseed.core.utils.ClassUtil
 
 
 /**

@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
-import com.bjike.t.baymax.artseed.core.data.entity.CoreDataResponse
-import com.bjike.t.baymax.artseed.core.data.net.CoreApiException
-import com.bjike.t.baymax.artseed.core.data.net.CoreErrorConstants
+import com.guangzhou.t.baymax.artseed.core.data.entity.CoreDataResponse
+import com.guangzhou.t.baymax.artseed.core.data.net.CoreApiException
+import com.guangzhou.t.baymax.artseed.core.data.net.CoreErrorConstants
 import com.google.gson.Gson
 import io.reactivex.Observable
 
@@ -21,11 +21,11 @@ object ErrorInfoUtils {
 
         if (throwable is HttpException) {
             // 如果是Retrofit的Http错误,则转换类型,获取信息
-            val responseBody = throwable.response().errorBody()
+            val responseBody = throwable.response()!!.errorBody()
             val type = responseBody!!.contentType()
             if (null != type) {
                 // 如果是application/json类型数据,则解析返回内容
-                if (type.type() == "application" && type.subtype() == "json") {
+                if (type.type == "application" && type.subtype == "json") {
                     try {
                         // 这里的返回内容是Bmob/AVOS/Parse等RestFul API文档中的错误代码和错误信息对象
                         val errorResponse = Gson().fromJson(

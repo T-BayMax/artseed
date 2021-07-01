@@ -1,6 +1,6 @@
-package com.bjike.t.baymax.artseed.core
+package com.guangzhou.t.baymax.artseed.core
 
-import android.support.annotation.NonNull
+import androidx.annotation.NonNull
 import java.util.ArrayList
 import java.util.concurrent.ConcurrentHashMap
 

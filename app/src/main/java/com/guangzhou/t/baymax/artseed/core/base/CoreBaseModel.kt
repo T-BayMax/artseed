@@ -1,3 +1,3 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
 interface CoreBaseModel

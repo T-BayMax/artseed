@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,13 +9,8 @@ import android.content.SharedPreferences
  * authorization：bjike.com
  */
 class PreferenceService(private val context: Context) {
-    var sharedPreferences: SharedPreferences
-    var editor: SharedPreferences.Editor
-
-    init {
-        sharedPreferences = context.getSharedPreferences("artseed",0)
-        editor = sharedPreferences.edit()
-    }
+    var sharedPreferences: SharedPreferences = context.getSharedPreferences("artseed",0)
+    var editor: SharedPreferences.Editor = sharedPreferences.edit()
 
     /**
      * 保存设置
@@ -33,7 +28,7 @@ class PreferenceService(private val context: Context) {
      * 获取设置
      * @return
      */
-    fun getSetting(key: String): String {
+    fun getSetting(key: String): String? {
 
         // 使用getString方法获得value，注意第2个参数是value的默认值
         return sharedPreferences.getString(key, "")

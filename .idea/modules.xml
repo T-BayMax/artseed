@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/artseed.iml" filepath="$PROJECT_DIR$/.idea/artseed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/artseed.iml" filepath="$PROJECT_DIR$/.idea/modules/artseed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/artseed.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/artseed.app.iml" />
     </modules>
   </component>
 </project>

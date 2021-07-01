@@ -1,10 +1,10 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.text.TextUtils
 import android.util.Log
-import com.bjike.t.baymax.artseed.core.data.entity.OkHttpCookies
+import com.guangzhou.t.baymax.artseed.core.data.entity.OkHttpCookies
 
 
 import java.io.ByteArrayInputStream
@@ -26,14 +26,13 @@ import kotlin.experimental.and
  * Created by T-BayMax on 2017/8/22.
  */
 
-class PersistentCookieStore(context: Context) {
+open class PersistentCookieStore(context: Context) {
 
     private val cookies: MutableMap<String, ConcurrentHashMap<String, Cookie>>
-    private val cookiePrefs: SharedPreferences
+    private val cookiePrefs: SharedPreferences = context.getSharedPreferences(COOKIE_PREFS, 0)
 
 
     init {
-        cookiePrefs = context.getSharedPreferences(COOKIE_PREFS, 0)
         cookies = HashMap()
 
         //将持久化的cookies缓存到内存中 即map cookies
@@ -46,7 +45,7 @@ class PersistentCookieStore(context: Context) {
                     val decodedCookie = decodeCookie(encodedCookie)
                     if (decodedCookie != null) {
                         if (!cookies.containsKey(key)) {
-                            cookies.put(key, ConcurrentHashMap())
+                            cookies[key] = ConcurrentHashMap()
                         }
                         cookies[key]?.put(name, decodedCookie)
                     }
@@ -55,8 +54,8 @@ class PersistentCookieStore(context: Context) {
         }
     }
 
-    protected fun getCookieToken(cookie: Cookie): String {
-        return cookie.name() + "@" + cookie.domain()
+    private fun getCookieToken(cookie: Cookie): String {
+        return cookie.name + "@" + cookie.domain
     }
 
     fun add(url: HttpUrl, cookie: Cookie) {
@@ -64,14 +63,14 @@ class PersistentCookieStore(context: Context) {
 
         //将cookies缓存到内存中 如果缓存过期 就重置此cookie
 
-        if (!cookie.persistent()) {
-            if (!cookies.containsKey(url.host())) {
-                cookies.put(url.host(), ConcurrentHashMap())
+        if (!cookie.persistent) {
+            if (!cookies.containsKey(url.host)) {
+                cookies[url.host] = ConcurrentHashMap()
             }
-            cookies[url.host()]?.put(name, cookie)
+            cookies[url.host]?.put(name, cookie)
         } else {
-            if (cookies.containsKey(url.host())) {
-                cookies[url.host()]?.remove(name)
+            if (cookies.containsKey(url.host)) {
+                cookies[url.host]?.remove(name)
             } else {
                 return
             }
@@ -79,15 +78,15 @@ class PersistentCookieStore(context: Context) {
 
         //将cookies持久化到本地
         val prefsWriter = cookiePrefs.edit()
-        prefsWriter.putString(url.host(), TextUtils.join(",", cookies[url.host()]?.keys))
+        prefsWriter.putString(url.host, cookies[url.host]?.keys?.let { TextUtils.join(",", it) })
         prefsWriter.putString(name, encodeCookie(OkHttpCookies(cookie)))
         prefsWriter.apply()
     }
 
     operator fun get(url: HttpUrl): List<Cookie> {
         val ret = ArrayList<Cookie>()
-        if (cookies.containsKey(url.host()))
-            ret.addAll(cookies[url.host()]!!.values)
+        if (cookies.containsKey(url.host))
+            ret.addAll(cookies[url.host]!!.values)
         return ret
     }
     operator fun get(url: String): List<Cookie> {
@@ -108,19 +107,20 @@ class PersistentCookieStore(context: Context) {
     fun remove(url: HttpUrl, cookie: Cookie): Boolean {
         val name = getCookieToken(cookie)
 
-        if (cookies.containsKey(url.host()) && cookies[url.host()]!!.containsKey(name)) {
-            cookies[url.host()]?.remove(name)
+        return if (cookies.containsKey(url.host) && cookies[url.host]!!.containsKey(name)) {
+            cookies[url.host]?.remove(name)
 
             val prefsWriter = cookiePrefs.edit()
             if (cookiePrefs.contains(name)) {
                 prefsWriter.remove(name)
             }
-            prefsWriter.putString(url.host(), TextUtils.join(",", cookies[url.host()]?.keys))
+            prefsWriter.putString(url.host,
+                cookies[url.host]?.keys?.let { TextUtils.join(",", it) })
             prefsWriter.apply()
 
-            return true
+            true
         } else {
-            return false
+            false
         }
     }
 
@@ -159,7 +159,7 @@ class PersistentCookieStore(context: Context) {
      * @param cookieString cookies string
      * @return cookie object
      */
-    protected fun decodeCookie(cookieString: String): Cookie? {
+    private fun decodeCookie(cookieString: String): Cookie? {
         val bytes = hexStringToByteArray(cookieString)
         val byteArrayInputStream = ByteArrayInputStream(bytes)
         var cookie: Cookie? = null
@@ -181,7 +181,7 @@ class PersistentCookieStore(context: Context) {
      * @param bytes byte array to be converted
      * @return string containing hex values
      */
-    protected fun byteArrayToHexString(bytes: ByteArray): String {
+    private fun byteArrayToHexString(bytes: ByteArray): String {
         val sb = StringBuilder(bytes.size * 2)
         for (element in bytes) {
             val v = element and 0xff.toByte()
@@ -199,7 +199,7 @@ class PersistentCookieStore(context: Context) {
      * @param hexString string of hex-encoded values
      * @return decoded byte array
      */
-    protected fun hexStringToByteArray(hexString: String): ByteArray {
+    private fun hexStringToByteArray(hexString: String): ByteArray {
         val len = hexString.length
         val data = ByteArray(len / 2)
         var i = 0
@@ -211,7 +211,7 @@ class PersistentCookieStore(context: Context) {
     }
 
     companion object {
-        private val LOG_TAG = "PersistentCookieStore"
-        val COOKIE_PREFS = "ISSP_Preferences"
+        private const val LOG_TAG = "PersistentCookieStore"
+        const val COOKIE_PREFS = "ISSP_Preferences"
     }
 }

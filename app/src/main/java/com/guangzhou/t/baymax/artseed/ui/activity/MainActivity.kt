@@ -1,7 +1,6 @@
 package com.guangzhou.t.baymax.artseed.ui.activity
 
 import android.graphics.Bitmap
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -11,7 +10,8 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.LinearLayout
 import android.widget.Toast
-import com.bjike.t.baymax.artseed.R
+import androidx.appcompat.app.AppCompatActivity
+import com.guangzhou.t.baymax.artseed.R
 import com.google.gson.Gson
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient

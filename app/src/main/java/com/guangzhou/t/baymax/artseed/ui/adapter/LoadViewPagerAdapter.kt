@@ -1,8 +1,8 @@
 package com.guangzhou.t.baymax.artseed.ui.adapter
 
-import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager.widget.PagerAdapter
 
 /**
  * Created by Min on 2016/11/24.

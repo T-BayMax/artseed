@@ -1,6 +1,6 @@
-package com.bjike.t.baymax.artseed.core.data.net
+package com.guangzhou.t.baymax.artseed.core.data.net
 
-import com.bjike.t.baymax.artseed.core.utils.ErrorInfoUtils
+import com.guangzhou.t.baymax.artseed.core.utils.ErrorInfoUtils
 import io.reactivex.Observable
 
 import io.reactivex.functions.Function

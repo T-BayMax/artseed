@@ -1,8 +1,8 @@
-package com.bjike.t.baymax.artseed.core.data.repository
+package com.guangzhou.t.baymax.artseed.core.data.repository
 
 import android.database.Observable
 
-import com.bjike.t.baymax.artseed.core.base.CoreBaseRepository
+import com.guangzhou.t.baymax.artseed.core.base.CoreBaseRepository
 
 /**
  *

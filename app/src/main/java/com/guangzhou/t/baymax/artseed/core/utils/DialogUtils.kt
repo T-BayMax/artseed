@@ -1,17 +1,16 @@
-package com.bjike.t.baymax.artseed.core.utils
+package com.guangzhou.t.baymax.artseed.core.utils
 
+import android.app.AlertDialog
 import android.app.Dialog
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.support.v7.app.AlertDialog
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
 
-import com.bjike.t.baymax.artseed.R
+import com.guangzhou.t.baymax.artseed.R
 
 /**
  * 对话框工具类, 提供常用对话框显示, 使用support.v7包内的AlertDialog样式
@@ -38,12 +37,12 @@ object DialogUtils {
          * 将显示Dialog的方法封装在这里面
          */
         val window = loadingDialog.window
-        val lp = window.attributes
+        val lp = window!!.attributes
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-        window.setGravity(Gravity.CENTER)
-        window.attributes = lp
-        window.setWindowAnimations(R.style.PopWindowAnimStyle)
+        window!!.setGravity(Gravity.CENTER)
+        window!!.attributes = lp
+        window!!.setWindowAnimations(R.style.PopWindowAnimStyle)
         loadingDialog.show()
 
         return loadingDialog

@@ -1,4 +1,4 @@
-package com.bjike.t.baymax.artseed.core.data.net
+package com.guangzhou.t.baymax.artseed.core.data.net
 
 /**
  * 处理服务器返回错误

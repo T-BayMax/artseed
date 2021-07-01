@@ -1,6 +1,6 @@
-package com.bjike.t.baymax.artseed.core.base
+package com.guangzhou.t.baymax.artseed.core.base
 
-import com.bjike.t.baymax.artseed.core.RxManager
+import com.guangzhou.t.baymax.artseed.core.RxManager
 
 
 /**

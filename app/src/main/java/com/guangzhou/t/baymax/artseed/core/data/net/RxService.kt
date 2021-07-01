@@ -1,6 +1,6 @@
-package com.bjike.t.baymax.artseed.core.data.net
+package com.guangzhou.t.baymax.artseed.core.data.net
 
-import com.bjike.t.baymax.artseed.core.CoreApp
+import com.guangzhou.t.baymax.artseed.core.CoreApp
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 
 import java.util.concurrent.TimeUnit
