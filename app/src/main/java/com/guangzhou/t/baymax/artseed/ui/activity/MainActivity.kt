@@ -16,10 +16,9 @@ import com.google.gson.Gson
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.DefaultWebClient
 import com.just.agentweb.PermissionInterceptor
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
+private lateinit var container:LinearLayout
     private lateinit var mAgentWeb: AgentWeb
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-
+        container=findViewById(R.id.container)
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(container, LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator()

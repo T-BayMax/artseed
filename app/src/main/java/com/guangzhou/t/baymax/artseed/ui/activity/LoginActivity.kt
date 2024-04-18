@@ -1,13 +1,13 @@
 package com.guangzhou.t.baymax.artseed.ui.activity
 
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import com.guangzhou.t.baymax.artseed.R
 import com.guangzhou.t.baymax.artseed.bean.UserBean
 import com.guangzhou.t.baymax.artseed.core.base.CoreBaseMVPActivity
 import com.guangzhou.t.baymax.artseed.core.utils.DialogUtils.showLoadingDialog
-import com.guangzhou.t.baymax.artseed.core.utils.PreferenceService
 import com.guangzhou.t.baymax.artseed.core.utils.StatusBarUtil
 import com.guangzhou.t.baymax.artseed.core.utils.ToastUtils.showToast
 import com.guangzhou.t.baymax.artseed.core.utils.checkPassword
@@ -15,9 +15,13 @@ import com.guangzhou.t.baymax.artseed.core.utils.checkPhoneNumber
 import com.guangzhou.t.baymax.artseed.mvp.contract.LoginContract
 import com.guangzhou.t.baymax.artseed.mvp.model.LoginModel
 import com.guangzhou.t.baymax.artseed.mvp.presenter.LoginPresenter
-import kotlinx.android.synthetic.main.activity_loging.*
 
 class LoginActivity() : CoreBaseMVPActivity<LoginPresenter, LoginModel>(), LoginContract.View {
+
+
+    lateinit var btnLogin: Button
+    lateinit var etPhone:EditText
+    lateinit var etPwd:EditText
 
     lateinit var dialog: Dialog
 
@@ -27,14 +31,17 @@ class LoginActivity() : CoreBaseMVPActivity<LoginPresenter, LoginModel>(), Login
 
     override fun initView(savedInstanceState: Bundle?) {
         StatusBarUtil.setStatusBar(this)
+        btnLogin=findViewById(R.id.btn_login)
+        etPhone=findViewById(R.id.et_phone)
+        etPwd=findViewById(R.id.et_pwd)
         initClick()
     }
     var phone:String=""
     var pwd:String=""
     private fun initClick() {
-        btn_login.setOnClickListener {
-             phone=et_phone.text.toString()
-             pwd=et_pwd.text.toString()
+        btnLogin.setOnClickListener {
+             phone=etPhone.text.toString()
+             pwd=etPwd.text.toString()
             if (checkPhoneNumber(phone)) {
                 return@setOnClickListener
             }
